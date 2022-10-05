@@ -7,6 +7,7 @@ import {
     faMagnifyingGlass,
     faPlus,
     faSignIn,
+    faEllipsisVertical,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -16,6 +17,7 @@ import AccountItem from '~/components/accountItem';
 import styles from './Header.module.scss';
 import images from '~/asessts/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -28,7 +30,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="tiktok" />
+                <img className={cx('logo')} src={images.logo} alt="tiktok" />
                 <Tippy
                     interactive
                     visible={searchResult.length > 0}
@@ -60,7 +62,14 @@ function Header() {
                         <FontAwesomeIcon className={cx('upload-icon')} icon={faPlus} />
                         Upload
                     </Button>
-                    <Button primary rightIcon = {<FontAwesomeIcon icon ={faSignIn}/>}>Log in</Button>
+                    <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
+                        Log in
+                    </Button>
+                    <Menu>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>

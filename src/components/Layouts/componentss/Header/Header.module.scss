@@ -18,6 +18,10 @@
     align-items: center;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .search,
 .search-result {
     width: 361px;
@@ -106,3 +110,11 @@
     font-weight: 700;
     color: rgba(22, 24, 35, 0.75);
 }
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 28px;
+    background-color: transparent;
+    padding:4px 8px;
+}
+
