@@ -21,23 +21,38 @@ import styles from './Header.module.scss';
 import images from '~/asessts/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Menu from '~/components/Popper/Menu';
+import MenuItem from '~/components/Popper/Menu/MenuItem';
 
 const cx = classNames.bind(styles);
-const MENU_ITEM =[
+const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'Language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'Language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Feedback and help',
-        to:'/feedback'
+        to: '/feedback',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         title: 'Keybroard shortcuts',
     },
-    
 ];
 
 function Header() {
@@ -47,6 +62,16 @@ function Header() {
             setSearchResult([]);
         }, 0);
     }, []);
+
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                //handle change language
+                break;
+            default:
+        }
+    };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -85,7 +110,7 @@ function Header() {
                     <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
                         Log in
                     </Button>
-                    <Menu items = {MENU_ITEM}>
+                    <Menu items={MENU_ITEM} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
