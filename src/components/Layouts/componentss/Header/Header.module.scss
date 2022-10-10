@@ -2,11 +2,16 @@
     --search-border: 92px;
     --search-height: 46px;
     --search-button-width: 52px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: 0px 1px 10px rgb(0 0 0 / 12%);
     display: flex;
     justify-content: center;
+    background-color: var(--white);
 }
 
 .inner {
@@ -20,85 +25,9 @@
 
 .logo {
     cursor: pointer;
-}
-
-.search,
-.search-result {
-    width: 361px;
-}
-
-.search {
-    height: var(--search-height);
-    background-color: rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-border);
-    padding-left: 16px;
     display: flex;
-    position: relative;
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 10;
-        height: 100%;
-        color: var(--black);
-        font-size: 1.6rem;
-        background-color: transparent;
-        caret-color: var(--prymary);
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 1.5px;
-        height: calc(var(--search-height) - 18px);
-        right: var(--search-button-width);
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(22, 24, 35, 0.12);
-    }
-
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
-    }
 }
 
-.search-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    color: rgba(22, 24, 35, 0.5);
-}
-
-.Clear,
-.loading {
-    position: absolute;
-    right: calc(var(--search-button-width) + 14px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-}
-
-.search-btn {
-    width: var(--search-button-width);
-    height: 100%;
-    color: rgba(22, 24, 35, 0.34);
-    font-size: 1.8rem;
-    border-top-right-radius: var(--search-border);
-    border-bottom-right-radius: var(--search-border);
-
-    &:hover {
-        cursor: pointer;
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
 
 //actions 
 .actions {
@@ -108,18 +37,41 @@
 }
 
 .upload-icon {
-    font-size: 1.6rem;
-    margin-right: 8px;
+    font-size: 2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .action-btn {
+    position: relative;
+    display: flex;
+    font-size: 2.2rem;
     color: #161823;
     background-color: transparent;
-    font-size: 2.2rem;
-    padding: 4px 12px;
+    padding: 4px 5px;
+    margin: 0 5px;
     cursor: pointer;
 
 }
+
+.barge {
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    padding: 0px 3px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: var(--prymary);
+
+}
+
 .custom-login{
     font-size: 1.4rem;
     font-weight: 700;
