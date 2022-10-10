@@ -100,11 +100,26 @@
     }
 }
 
+//actions 
+.actions {
+    display: flex;
+    align-items: center;
+
+}
+
 .upload-icon {
     font-size: 1.6rem;
     margin-right: 8px;
 }
 
+.action-btn {
+    color: #161823;
+    background-color: transparent;
+    font-size: 2.2rem;
+    padding: 4px 12px;
+    cursor: pointer;
+
+}
 .custom-login{
     font-size: 1.4rem;
     font-weight: 700;
@@ -118,4 +133,15 @@
     padding:4px 8px;
     cursor: pointer;
 }
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 999px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+
 

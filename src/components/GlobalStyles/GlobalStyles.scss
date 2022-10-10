@@ -4,7 +4,7 @@
 :root {
     --prymary: #fe2c55;
     --black: #000;
-    --text: #333;
+    --text: rgb(22, 23 , 35);
     --white: #fff;
     //defaultLayout
 
@@ -30,12 +30,32 @@ body {
     color: var(--text);
 }
 
-button, input,[tabindex] {
+button,
+input,
+[tabindex] {
     border: none;
     outline: none;
 }
 
-a[href]{
+a[href] {
     color: var(--text);
     text-decoration: none;
+    cursor: pointer;
+}
+
+//custom tippy
+body {
+    .tippy-box {
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+    .tippy-arrow {
+        color:rgba(84, 84, 84, 0.92);
+    }
+    .tippy-content {
+        padding: 8px 9px; 
+    }
 }
