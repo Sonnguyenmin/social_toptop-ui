@@ -21,7 +21,6 @@ import styles from './Header.module.scss';
 import images from '~/asessts/images';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
-import Image from '~/components/Images';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
@@ -140,7 +139,7 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <Image
+                            <img
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/24d72db4dee13d602f6abb7293bcd3a5~c5_100x100.jpeg?x-expires=1665428400&x-signature=WBqcj9AFMVGiGqSi8WxcjFbUGf0%3D"
                                 alt="Nguyen Van A"
