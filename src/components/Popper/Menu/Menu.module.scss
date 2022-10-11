@@ -11,6 +11,10 @@
     padding-bottom: 8px;
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 .menu-item {
     width: 100%;
     justify-content: flex-start;
@@ -31,8 +35,9 @@
 ///header.js
 .header {
     position: relative;
+    flex-shrink: 0;
+    margin-top: -8px;
     height: 50px;
-    top: -8px;
 }
 .back-btn {
     width: 50px;
