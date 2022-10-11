@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
 
     faPlus,
@@ -22,6 +23,7 @@ import images from '~/asessts/images';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Search from '../Search';
+import routesConfig from  '~/config/route'
 
 const cx = classNames.bind(styles);
 const MENU_ITEM = [
@@ -95,7 +97,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img className={cx('logo')} src={images.logo} alt="tiktok" />
+                <Link to={routesConfig.home} className={cx('logo')}><img  src={images.logo} alt="tiktok"/></Link>
                 <Search/>
                 <div className={cx('actions')}>
                     {currentUser ? (
