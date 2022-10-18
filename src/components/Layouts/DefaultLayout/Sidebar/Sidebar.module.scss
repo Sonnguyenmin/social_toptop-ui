@@ -1,4 +1,30 @@
 .wrapper {
     width: 356px;
-   
+    padding: 20px 0 26px 8px;
+    --font-family : 'IBM Plex Sans', sans-serif;
+}
+
+.nav-inner {
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+
+.link-icon {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    &:hover {
+        background-color: rgb(22, 24, 35, 0.03);
+    }
+    &:nth-child(1){
+        color: #fe2c55;
+    }
+}
+
+.link-text {
+    font-size: 1.8rem;
+    margin-left: 8px;
 }

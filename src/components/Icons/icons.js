@@ -83,6 +83,7 @@ export const HomeIcon = ({ width = '3.2rem', height = '3.2rem', className }) => 
     </svg>
 );
 
+
 export const HomeActiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
     <svg
         className={className}
@@ -127,7 +128,11 @@ export const UserGroupIcon = ({ width = '3.2rem', height = '3.2rem', className }
     </svg>
 );
 
-export const UserGroupActiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const UserGroupActiveIcon = ({
+    width = '3.2rem',
+    height = '3.2rem',
+    className,
+}) => (
     <svg
         className={className}
         width={width}

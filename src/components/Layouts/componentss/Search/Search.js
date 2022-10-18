@@ -7,8 +7,8 @@ import { useDebounce } from '~/Hooks';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
 
-import AccountItem from '~/components/accountItem';
-import { SearchIcon } from '~/components/Icons';
+import AccountItem from '~/components/accountItem/accountItem';
+import { SearchIcon } from '~/components/Icons/icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Search.module.scss';
 import * as searchServices from '~/Services/searchServices';
@@ -18,14 +18,14 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -33,14 +33,14 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced);
+            const result = await searchServices.search(debouncedValue);
             setSearchResult(result);
 
             setLoading(false);
         };
 
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -53,8 +53,8 @@ function Search() {
     };
 
     const handleChange = (e) => {
-        const searchValue = e.target.value
-        if (!searchValue.startsWith(' ')){
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue);
         }
     };
@@ -63,7 +63,7 @@ function Search() {
     return (
         <div>
             <HeadlessTippy
-                appendTo= {() => document.body}
+                appendTo={() => document.body}
                 interactive
                 visible={showResult && searchResult.length > 0}
                 render={(attrs) => (
@@ -98,7 +98,10 @@ function Search() {
                     {loading && (
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                     )}
-                    <button className={cx('search-btn')} onMouseDown = {e => e.preventDefault()}>
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => e.preventDefault()}
+                    >
                         <SearchIcon />
                     </button>
                 </div>

@@ -56,6 +56,15 @@
     }
 }
 
+.border {
+    border-color: rgba(22, 24, 35, 0.12);
+    color: rgb(22, 24, 35);
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.12);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
 .outline {
     color: var(--prymary);
     border-color: currentColor;

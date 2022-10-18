@@ -2,7 +2,6 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import {
-
     faPlus,
     faSignIn,
     faEllipsisVertical,
@@ -17,13 +16,13 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 
-import Button from '~/components/Button';
+import Button from '~/components/Button/Button';
 import styles from './Header.module.scss';
-import images from '~/asessts/images';
-import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
-import Search from '../Search';
-import routesConfig from  '~/config/route'
+import images from '~/asessts/images/images';
+import Menu from '~/components/Popper/Menu/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons/icons';
+import Search from '../Search/Search';
+import routesConfig from '~/config/route';
 
 const cx = classNames.bind(styles);
 const MENU_ITEM = [
@@ -42,7 +41,7 @@ const MENU_ITEM = [
                     type: 'Language',
                     code: 'vi',
                     title: 'Tiếng Việt',
-                }
+                },
             ],
         },
     },
@@ -57,8 +56,8 @@ const MENU_ITEM = [
     },
 ];
 
-function Header() { 
-    const currentUser = true;
+function Header() {
+    const currentUser = false;
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -97,14 +96,20 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}><img  src={images.logo} alt="tiktok"/></Link>
-                <Search/>
+                <Link to={routesConfig.home} className={cx('logo')}>
+                    <img src={images.logo} alt="tiktok" />
+                </Link>
+                <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 50]} content="Upload video" placement="bottom" >
+                            <Tippy
+                                delay={[0, 50]}
+                                content="Upload video"
+                                placement="bottom"
+                            >
                                 <button className={cx('action-btn')}>
-                                    <UploadIcon/>
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 50]} content="Messages" placement="bottom">
@@ -114,18 +119,14 @@ function Header() {
                             </Tippy>
                             <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <InboxIcon/>
+                                    <InboxIcon />
                                     <span className={cx('barge')}>10</span>
                                 </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button text>
-                                <FontAwesomeIcon
-                                    className={cx('upload-icon')}
-                                    icon={faPlus}
-                                />
+                            <Button border leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                                 Upload
                             </Button>
                             <Button
